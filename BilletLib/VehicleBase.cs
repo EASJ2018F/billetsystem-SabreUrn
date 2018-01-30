@@ -11,19 +11,20 @@ namespace BilletLib {
 
         public string LicensePlate {
             get { return _licensePlate; }
-            set { _licensePlate = value; }
+            set {
+                if (value.Length > 7) {
+                    throw new ArgumentException();
+                }
+                _licensePlate = value;
+            }
         }
         public DateTime Date {
             get { return _date; }
             set { _date = value; }
         }
 
-        public virtual int Price() {
-            return 100;
-        }
+        public abstract int Price(bool brobizz = false);
 
-        public virtual string VehicleType() {
-            return "";
-        }
+        public abstract string VehicleType();
     }
 }

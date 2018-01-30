@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BilletLib {
     public class MC : VehicleBase {
-        public override int Price() {
-            return 125;
+        public override int Price(bool brobizz = false) {
+            int price = 125;
+            if (brobizz) {
+                double doublePrice = Convert.ToDouble(price);
+                doublePrice = doublePrice * 0.95;
+                price = (int)doublePrice;
+            }
+            return price;
         }
 
         public override string VehicleType() {

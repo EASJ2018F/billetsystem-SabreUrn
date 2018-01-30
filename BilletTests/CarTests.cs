@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BilletTests {
+namespace Billet.Tests {
     [TestClass]
     public class CarTests {
         [TestMethod]
@@ -57,6 +57,16 @@ namespace BilletTests {
 
             //assert
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestCar_LicensePlateLongerThan7_ThrowsEx() {
+            //arrange
+            Car car = new Car();
+
+            //act
+            car.LicensePlate = "ABCDEFGH";
         }
 
         [TestMethod]
