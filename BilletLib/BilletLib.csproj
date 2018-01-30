@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="Car.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="MC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\BilletLib.rd.xml" />
   </ItemGroup>
