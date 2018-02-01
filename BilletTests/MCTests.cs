@@ -15,7 +15,7 @@ namespace Billet.Tests {
             MC mc = new MC();
 
             //act
-            int actual = mc.Price();
+            int actual = mc.Price("Storebælt");
 
             //assert
             Assert.IsTrue(actual >= 0);
@@ -28,7 +28,7 @@ namespace Billet.Tests {
 
             //act
             int expected = 240;
-            int actual = mc.Price();
+            int actual = mc.Price("Storebælt");
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -40,7 +40,7 @@ namespace Billet.Tests {
             MC mc = new MC();
 
             //act
-            string actual = mc.VehicleType();
+            string actual = mc.VehicleType("Storebælt");
 
             //assert
             Assert.IsFalse(String.IsNullOrWhiteSpace(actual));

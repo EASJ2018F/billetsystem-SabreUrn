@@ -6,18 +6,37 @@ using System.Threading.Tasks;
 
 namespace BilletLib {
     public class Car : VehicleBase {
-        public override int Price(bool brobizz = false) {
+        public Car() {
+            ØresundPriceDefault = 410;
+            ØresundPriceBrobizz = 161;
+        }
+
+        public override int Price(string bridgeType, bool brobizz = false, bool weekend = false) { 
             int price = 240;
+            if(weekend) {
+                WeekendDiscount(price, bridgeType);
+            }
+
             if(brobizz) {
-                double doublePrice = Convert.ToDouble(price);
-                doublePrice = doublePrice * 0.95;
-                price = (int)doublePrice;
+                BrobizzDiscount(price, bridgeType);
             }
             return price;
         }
 
-        public override string VehicleType() {
+        public override string VehicleType(string bridgeType) {
+            if(bridgeType == "Øresund") {
+                return "Øresund Car";
+            }
             return "Car";
+        }
+
+        public int WeekendDiscount(int price, string bridgeType) {
+            if (VehicleType(bridgeType) != "Øresund MC") {
+                double weekendPriceDouble = Convert.ToDouble(price);
+                weekendPriceDouble = weekendPriceDouble * 0.80;
+                price = (int)weekendPriceDouble;
+            }
+            return price;
         }
     }
 }

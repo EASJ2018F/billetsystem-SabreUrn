@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace BilletLib {
     public class MC : VehicleBase {
-        public override int Price(bool brobizz = false) {
+        public MC() {
+            ØresundPriceDefault = 210;
+            ØresundPriceBrobizz = 73;
+        }
+
+        public override int Price(string bridgeType, bool brobizz = false, bool weekend = false) {
             int price = 125;
-            if (brobizz) {
-                double doublePrice = Convert.ToDouble(price);
-                doublePrice = doublePrice * 0.95;
-                price = (int)doublePrice;
+
+            if(brobizz) {
+                BrobizzDiscount(price, bridgeType);
             }
             return price;
         }
 
-        public override string VehicleType() {
+        public override string VehicleType(string bridgeType) {
+            if(bridgeType == "Øresund") {
+                return "Øresund MC";
+            }
             return "MC";
         }
     }

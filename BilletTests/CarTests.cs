@@ -15,7 +15,7 @@ namespace Billet.Tests {
             Car car = new Car();
 
             //act
-            int actual = car.Price();
+            int actual = car.Price("Storebælt");
 
             //assert
             Assert.IsTrue(actual >= 0);
@@ -28,7 +28,7 @@ namespace Billet.Tests {
 
             //act
             int expected = 240;
-            int actual = car.Price();
+            int actual = car.Price("Storebælt");
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -40,7 +40,7 @@ namespace Billet.Tests {
             Car car = new Car();
 
             //act
-            string actual = car.VehicleType();
+            string actual = car.VehicleType("Storebælt");
 
             //assert
             Assert.IsFalse(String.IsNullOrWhiteSpace(actual));
