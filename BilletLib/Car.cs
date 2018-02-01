@@ -14,11 +14,11 @@ namespace BilletLib {
         public override int Price(string bridgeType, bool brobizz = false, bool weekend = false) { 
             int price = 240;
             if(weekend) {
-                WeekendDiscount(price, bridgeType);
+                WeekendDiscount(price, bridgeType); //20% discount
             }
 
             if(brobizz) {
-                BrobizzDiscount(price, bridgeType);
+                BrobizzDiscount(price, bridgeType); //5% discount
             }
             return price;
         }
@@ -31,7 +31,7 @@ namespace BilletLib {
         }
 
         public int WeekendDiscount(int price, string bridgeType) {
-            if (VehicleType(bridgeType) != "Øresund MC") {
+            if (VehicleType(bridgeType) != "Øresund Car") {
                 double weekendPriceDouble = Convert.ToDouble(price);
                 weekendPriceDouble = weekendPriceDouble * 0.80;
                 price = (int)weekendPriceDouble;
